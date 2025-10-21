@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年 E-Marketing 推广预算报告 (流量优先版)</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Chart.js 用于绘制图表 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 引入 Noto Sans SC 简体中文字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 自定义样式 */
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f8fafc; /* coolGray-50 */
+        }
+        .metric-card h3 {
+            transition: color 0.3s ease;
+        }
+        .metric-card:hover h3 {
+            color: #ef4444; /* red-500 */
+        }
+        /* Chart.js 图表动画交互 */
+        #budgetChart {
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        #budgetChart:hover {
+            transform: scale(1.02);
+        }
+        .section-card {
+             scroll-margin-top: 80px; /* 增加滚动定位时的顶部偏移 */
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-5xl">
+
+        <!-- 报告标题和摘要 -->
+        <header class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">2025年度 E-Marketing 推广预算报告</h1>
+            <p class="text-lg text-slate-600 mt-2">“流量优先，权威跟进” 招生漏斗模型策略</p>
+            <div class="mt-4 inline-flex items-center bg-red-100 text-red-800 text-sm font-semibold px-3 py-1 rounded-full">
+                新策略：主攻抖音 & 小红书
+            </div>
+        </header>
+
+        <!-- 核心指标 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center">
+                <h3 class="text-3xl font-bold text-slate-900 tracking-tight" id="totalBudget">¥ 0</h3>
+                <p class="text-slate-500 mt-1">申请预算总额</p>
+            </div>
+            <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center">
+                <h3 class="text-3xl font-bold text-slate-900 tracking-tight">51.6%</h3>
+                <p class="text-slate-500 mt-1">预算投入新媒体</p>
+                 <p class="text-xs text-slate-400 mt-1">抖音 & 小红书推广</p>
+            </div>
+            <div class="metric-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center">
+                <h3 class="text-3xl font-bold text-slate-900 tracking-tight">3 层</h3>
+                <p class="text-slate-500 mt-1">招生漏斗模型</p>
+                <p class="text-xs text-slate-400 mt-1">引流 > 信任 > 转化</p>
+            </div>
+        </div>
+
+        <!-- 核心策略 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-12 section-card" id="strategy">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                核心策略：招生漏斗模型
+            </h2>
+            <p class="text-slate-600 leading-relaxed">
+                为最大化招生效果，我们采用经典的营销漏斗模型，将预算精准地投入到招生转化的每一个环节，实现从“吸引”到“信任”再到“咨询”的全链路覆盖。
+            </p>
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-center">
+                    <div class="text-3xl mb-2">📥</div>
+                    <h4 class="font-semibold text-lg text-slate-800">顶层：吸引流量 (51.6%)</h4>
+                    <p class="text-slate-500 mt-2 text-sm">
+                        在抖音、小红书进行大规模内容曝光和广告投放，捕获年轻用户的注意力。
+                    </p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-center">
+                    <div class="text-3xl mb-2">🤝</div>
+                    <h4 class="font-semibold text-lg text-slate-800">中层：建立信任 (38.5%)</h4>
+                    <p class="text-slate-500 mt-2 text-sm">
+                        用权威官媒背书和完善的百度信息，承接社交流量，建立品牌公信力。
+                    </p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-center">
+                    <div class="text-3xl mb-2">✅</div>
+                    <h4 class="font-semibold text-lg text-slate-800">底层：促成转化 (9.9%)</h4>
+                    <p class="text-slate-500 mt-2 text-sm">
+                        提供精美的招生简章和宣传材料，促使高意向用户完成最终咨询。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 预算构成与数据分析 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-12 section-card" id="budget">
+            <h2 class="text-2xl font-bold text-slate-900 mb-2">预算构成与数据分析</h2>
+            <p class="text-slate-500 mb-6">点选下方图表区域，可跳转至对应的预算详情。</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="relative h-64 md:h-80">
+                    <canvas id="budgetChart"></canvas>
+                </div>
+                <div id="budgetDetails" class="space-y-4">
+                    <!-- 预算细节将由 JS 动态生成 -->
+                    <div class="border-l-4 border-red-500 pl-4 py-2 bg-red-50 rounded-r-lg">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-slate-700">精准流量推广 (主)</span>
+                            <span class="font-bold text-red-600 text-lg">¥ 35,000</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mt-1">抖音、小红书内容营销与广告投放，大规模引流。</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4 py-2 bg-blue-50 rounded-r-lg">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-slate-700">权威品牌背书</span>
+                            <span class="font-bold text-blue-600 text-lg">¥ 15,000</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mt-1">主流媒体报道，用于承接流量，建立品牌信任。</p>
+                    </div>
+                     <div class="border-l-4 border-green-500 pl-4 py-2 bg-green-50 rounded-r-lg">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-slate-700">基础信息建设</span>
+                            <span class="font-bold text-green-600 text-lg">¥ 11,080</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mt-1">校正百度及AI平台信息，确保搜索结果权威准确。</p>
+                    </div>
+                    <div class="border-l-4 border-amber-500 pl-4 py-2 bg-amber-50 rounded-r-lg">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-slate-700">核心物料制作</span>
+                            <span class="font-bold text-amber-600 text-lg">¥ 6,715</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mt-1">招生简章、视频等，作为最终转化工具。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 策略深度解析 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-12 section-card" id="social">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                策略解析：预算如何协同作用？
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-4">
+                本次预算的核心是将<strong>¥35,000 (51.6%)</strong>投入到抖音和小红书。但这笔投入的成功，依赖于其他预算的协同支持。
+            </p>
+            <ul class="list-none space-y-3">
+                <li class="flex items-start">
+                    <span class="bg-red-500 text-white rounded-full h-6 w-6 text-sm flex items-center justify-center mr-3 font-bold flex-shrink-0">1</span>
+                    <div>
+                        <h4 class="font-semibold">流量投放 (¥35,000)</h4>
+                        <p class="text-slate-500 text-sm">通过与留学领域KOL合作、信息流广告等方式，在抖音和小红书平台创造至少 <strong class="text-red-600">50万+</strong> 的曝光量，吸引用户产生初步兴趣。</p>
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <span class="bg-blue-500 text-white rounded-full h-6 w-6 text-sm flex items-center justify-center mr-3 font-bold flex-shrink-0">2</span>
+                    <div>
+                        <h4 class="font-semibold">信任承接 (¥26,080)</h4>
+                        <p class="text-slate-500 text-sm">当用户被吸引后，会习惯性地去百度搜索。我们投入的官媒报道和信息建设费用，确保他们能搜到权威、正面的信息，从而将社交流量转化为<strong class="text-blue-600">有效信任</strong>。</p>
+                    </div>
+                </li>
+                 <li class="flex items-start">
+                    <span class="bg-amber-500 text-white rounded-full h-6 w-6 text-sm flex items-center justify-center mr-3 font-bold flex-shrink-0">3</span>
+                    <div>
+                        <h4 class="font-semibold">转化落地 (¥6,715)</h4>
+                        <p class="text-slate-500 text-sm">对于已经建立信任的用户，我们通过官网、公众号等渠道提供精美的招生材料，引导他们留下联系方式，最终由招生老师完成<strong class="text-amber-600">最终转化</strong>。</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 预期成果 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-12 section-card" id="kpi">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                预期关键成果 (KPIs)
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-slate-50 p-4 rounded-lg text-center border border-slate-200">新媒体总曝光 > 50万次</div>
+                <div class="bg-slate-50 p-4 rounded-lg text-center border border-slate-200">官网引流量提升 > 30%</div>
+                <div class="bg-slate-50 p-4 rounded-lg text-center border border-slate-200">有效咨询量提升 > 15%</div>
+                <div class="bg-slate-50 p-4 rounded-lg text-center border border-slate-200">完成年度策略优化报告</div>
+            </div>
+        </div>
+
+        <!-- 审批请求 -->
+        <footer class="text-center mt-12 py-8 border-t border-slate-200">
+             <h3 class="text-xl font-bold text-slate-800">审批请求</h3>
+            <p class="text-slate-600 max-w-2xl mx-auto mt-2">
+                为确保项目能于2025年10月22日顺利启动，恳请上级批准本报告所呈报的 <strong>¥ 67,795</strong> 预算。此项目是实现中国地区招生目标的战略关键点。
+            </p>
+            <button class="mt-6 bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-blue-500/50">
+                支持此预算提案
+            </button>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 新的预算数据
+            const budgetData = {
+                labels: ['精准流量推广 (¥35,000)', '权威品牌背书 (¥15,000)', '基础信息建设 (¥11,080)', '核心物料制作 (¥6,715)'],
+                values: [35000, 15000, 11080, 6715],
+                backgroundColors: ['#ef4444', '#3b82f6', '#10b981', '#f59e0b'],
+                hoverBackgroundColors: ['#dc2626', '#2563eb', '#059669', '#d97706'],
+                anchorLinks: ['#social', '#budget', '#budget', '#budget'] 
+            };
+            const totalBudget = budgetData.values.reduce((a, b) => a + b, 0);
+
+            // 动态数字（用于总预算）
+            function animateValue(obj, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    obj.innerHTML = `¥ ${Math.floor(progress * (end - start) + start).toLocaleString()}`;
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            const totalBudgetElement = document.getElementById('totalBudget');
+            animateValue(totalBudgetElement, 0, totalBudget, 1500);
+
+            // 绘制饼图
+            const ctx = document.getElementById('budgetChart').getContext('2d');
+            const budgetChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: budgetData.labels,
+                    datasets: [{
+                        data: budgetData.values,
+                        backgroundColor: budgetData.backgroundColors,
+                        hoverBackgroundColor: budgetData.hoverBackgroundColors,
+                        borderColor: '#f8fafc',
+                        borderWidth: 4,
+                        hoverOffset: 15
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                font: {
+                                    size: 13,
+                                    family: "'Noto Sans SC', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    let label = context.label.split('(')[0] || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    const value = context.raw;
+                                    const percentage = ((value / totalBudget) * 100).toFixed(1);
+                                    label += `¥ ${value.toLocaleString()} (${percentage}%)`;
+                                    return label;
+                                }
+                            },
+                            padding: 10,
+                            titleFont: { size: 16 },
+                            bodyFont: { size: 14 }
+                        }
+                    }
+                }
+            });
+
+            // 图表点击跳转
+            document.getElementById('budgetChart').onclick = function (evt) {
+                const activePoints = budgetChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+                if (activePoints.length) {
+                    const firstPoint = activePoints[0];
+                    const index = firstPoint.index;
+                    const link = budgetData.anchorLinks[index];
+                    const targetElement = document.querySelector(link);
+                    if (targetElement) {
+                         targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            };
+        });
+    </script>
+</body>
+</html>
